@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+
+		<title><%= name %></title>
+	</head>
+	<body>
+		<!-- NAVBAR START -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">VishwaEvent</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a
+								class="nav-link active"
+								aria-current="page"
+								href="/club/event/add"
+								>Add Event</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/club/event/all">Our Events</a>
+						</li>
+					</ul>
+				</div>
+				<p class="lead m-2">Welcome, <%= name %>!!!</p>
+				<a href="/logout" class="btn btn-secondary"> Logout </a>
+			</div>
+		</nav>
+		<!-- NAVBAR END -->
+		<!-- Add Event Form Start -->
+		<div class="container border mt-5 mb-5 p-3">
+			<p class="display-6 text-center">Create Event</p>
+			<form action="/club/event/add" method="post">
+				<div class="form-floating mb-3">
+					<input
+						type="text"
+						class="form-control lead"
+						id="floatingInput"
+						placeholder="Your Event Title"
+            name="title"
+            required
+					/>
+					<label for="floatingInput">Your Event Title</label>
+				</div>
+
+				<div class="mb-3">
+					<div class="form-floating">
+						<textarea
+							class="form-control"
+							placeholder="Leave a comment here"
+							id="floatingTextarea2"
+							style="height: 100px"
+              name="shortDescription"
+              required
+						></textarea>
+						<label for="floatingTextarea2" 
+							>Short Description about your Event (in 1-2 lines)...</label
+						>
+					</div>
+				</div>
+
+				<div class="mb-3 mt-3">
+					<label for="floatingTextarea2" class=""
+						>Detail Description about your Event (Write in
+						<a
+							target="_blank"
+							rel="noopener noreferrer"
+							href="https://youtu.be/HUBNt18RFbo"
+							>Markdown Language</a
+						>)</label
+					>
+					<div class="form-floating">
+						<textarea
+							class="form-control"
+							placeholder="Leave a comment here"
+							id="floatingTextarea2"
+							style="height: 500px"
+              name="description"
+              required
+						></textarea>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-floating col mb-3">
+						<input
+							type="text"
+							class="form-control lead"
+							id="floatingInput"
+						placeholder="Contact Person Name"
+            name="contactName"
+            required
+						/>
+						<label for="floatingInput" class="ms-2">Contact Person Name</label>
+					</div>
+					<div class="form-floating col mb-3">
+						<input
+							type="text"
+							class="form-control lead"
+							id="floatingInput"
+						placeholder="Contact Person Phone Number"
+            name="contactPhoneNumber"
+            required
+						/>
+						<label for="floatingInput" class="ms-2">Contact Person Phone Number</label>
+					</div>
+				</div>
+        <div class="row">
+					<div class="form-floating col mb-3">
+						<input
+							type="number"
+							class="form-control lead"
+							id="floatingInput"
+              placeholder="cs"
+              name="fees"
+              required
+
+						/>
+						<label for="floatingInput" class="ms-2">Registration Fees</label>
+					</div>
+					<div class="form-floating col mb-3">
+						<input
+							type="date"
+							class="form-control lead"
+							id="floatingInput"
+              name="registrationStartDate"
+              required
+
+						/>
+						<label for="floatingInput" class="ms-2">Registration Start Date</label>
+					</div>
+          <div class="form-floating col mb-3">
+						<input
+							type="date"
+							class="form-control lead"
+							id="floatingInput"
+              name="registrationEndDate"
+              required
+						/>
+						<label for="floatingInput" class="ms-2">Registration End Date</label>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Create Event</button>
+			</form>
+		</div>
+		<!-- Add Event Form End -->
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

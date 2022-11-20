@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title><%= title %> | All Registrations</title>
+  </head>
+  <body>
+    <!-- NAVBAR START -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">VishwaEvent</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								href="/club/event/add"
+								>Add Event</a
+							>
+						</li>
+						<li class="nav-item">
+								<a class="nav-link active" href="/club/event/all">Our Events</a>
+						</li>
+					</ul>
+				</div>
+				<p class="lead m-2">Welcome, <%= name %>!!!</p>
+				<a href="/logout" class="btn btn-secondary"> Logout </a>
+			</div>
+		</nav>
+		<!-- NAVBAR END -->
+		<!-- Registration TABLE START -->
+		<div class="container border mt-5 mb-5 p-3">
+		<p class="display-6">All Registrations of : <strong><u> <%= title %></u></strong></p>
+		<% if(result.length != 0) {%>
+			<table class="table">
+				<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">ID</th>
+					<th scope="col">Name</th>
+					<th scope="col">Phone No.</th>
+					<th scope="col">Email-ID</th>
+					<th scope="col">PRN no.</th>
+					<th scope="col">Year</th>
+					<th scope="col">Division</th>
+				</tr>
+				</thead>
+				<tbody>
+				<% for(let i=0; i<result.length; i++) {%>
+				<tr>
+					<th scope="row"><%= i+1 %></th>
+					<td><%= result[i].id %></td>
+					<td><%= result[i].name%></td>
+					<td><%= result[i].phoneNumber %></td>
+					<td><%= result[i].email %></td>
+					<td><%= result[i].prnNumber %></td>
+					<td><%= result[i].year %></td>
+					<td><%= result[i].division %></td>
+				<% } %>
+				</tbody>
+			</table>
+		<% } else {%>
+			<div class="container">
+				<div class="p-5 text-center">
+					<p class="lead"><%= msg %></p>
+					<a href="/club/event/all" class="btn" style="color: white; background-color: #955144; width: 12rem;">
+						<b>Back</b>
+					</a>
+				</div>
+			</div>
+		<% } %>
+	</div>
+		<!-- Registration TABLE END -->
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
